@@ -11,26 +11,30 @@ class TestCases extends Component {
   render() {
     var database = firebase.database();
 
-    // TODO: Uncommen the following cade and update this Firebase database
+    // TODO: Uncomment the following cade and update this Firebase database
     // lookup to access the path "/db-search/test-cases".
 
-    /*
-    var testCasesDatabase = database.ref('<INSERT D.B. PATH HERE>');
+    var testCasesDatabase = database.ref('/db-search/test-cases');
     testCasesDatabase.once('value').then(function(snapshot) {
       var elements = [];
       var testCases = snapshot.val();
+      console.log(testCases);
       for (var i = 0; i < testCases.length; i++) {
         var testCase = testCases[i];
         var testName = testCase['test-name'];
+        var testHint = testCase['test-hint'];
+        var testAnswer = testCase['test-answer'];
+        var testFunction = testCase['test-function'];
         elements.push(
           <div key={i} className="TestCase">
             <b>{testName}</b>
-            <p>TODO: Add more test case items, e.g. test-hint, etc.</p>
+            <p>{testHint}</p>
+            <p>{testAnswer}</p>
+            <p>{testFunction}</p>
           </div>);
       }
       this.setState({ testCaseElements: elements });
     }.bind(this));  // So we can access "this" in the callback above.
-    */
 
     return (
       <div className="TestCases">
